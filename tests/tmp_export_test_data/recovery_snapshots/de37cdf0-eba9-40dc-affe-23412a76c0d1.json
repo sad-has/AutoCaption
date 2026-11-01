@@ -1,0 +1,58 @@
+{
+  "id": "de37cdf0-eba9-40dc-affe-23412a76c0d1",
+  "userId": "00000000-0000-4000-a000-00000000000a",
+  "name": "Export Test Video Project",
+  "aspectRatio": "9:16",
+  "captionStyle": {
+    "presetId": "hormozi",
+    "fontFamily": "Montserrat, sans-serif",
+    "fontSize": 48,
+    "fontWeight": 900,
+    "allCaps": true,
+    "letterSpacing": 1.5,
+    "lineHeight": 1.15,
+    "textColor": "#FFFFFF",
+    "activeWordColor": "#10B981",
+    "strokeColor": "#000000",
+    "strokeWidth": 6,
+    "hasShadow": true,
+    "shadowColor": "rgba(0,0,0,0.8)",
+    "shadowBlur": 14,
+    "shadowOffsetY": 4,
+    "hasBox": false,
+    "boxColor": "rgba(0,0,0,0.6)",
+    "boxPaddingX": 16,
+    "boxPaddingY": 8,
+    "boxCornerRadius": 12,
+    "positionYPercent": 22,
+    "positionXPercent": 50
+  },
+  "captionSegments": [
+    {
+      "id": "seg-1",
+      "startMs": 100,
+      "endMs": 800,
+      "text": "नमस्ते दुनिया हिन्दी सबटाइटल्स",
+      "words": [],
+      "trackId": "C1"
+    },
+    {
+      "id": "seg-2",
+      "startMs": 900,
+      "endMs": 1500,
+      "text": "AutoCaption Production Quality MP4",
+      "words": [],
+      "trackId": "C1"
+    }
+  ],
+  "videoId": null,
+  "videoStoragePath": null,
+  "videoName": null,
+  "videoDurationMs": null,
+  "videoWidth": null,
+  "videoHeight": null,
+  "videoFps": null,
+  "version": 1,
+  "createdAt": "2026-10-31T08:54:24.333Z",
+  "updatedAt": "2026-10-31T08:54:24.333Z"
+}
