@@ -1815,6 +1815,17 @@ export const useAppStore = create<AppState>((set, get) => ({
       logger.info('Store', `Transcription completed for job ${progress.jobId}. Fetching updated project.`);
       set({ isTranscribing: false });
 
+      if (progress.captionSegments && progress.captionSegments.length > 0) {
+        set((s) => ({
+          currentProject: {
+            ...s.currentProject,
+            captionSegments: progress.captionSegments!,
+          },
+          selectedSegmentId: progress.captionSegments![0]?.id || null,
+          saveStatus: 'saved',
+        }));
+      }
+
       const projectId = progress.projectId || get().currentProject.id;
       if (window.electronAPI?.getProject) {
         window.electronAPI.getProject(projectId).then((res) => {

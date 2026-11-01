@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as fsp from 'fs/promises';
+import * as path from 'path';
 import { BrowserWindow } from 'electron';
 import { logger } from '../logger';
 import { extractAudioFromVideo } from './audio/extractor';
@@ -9,9 +10,9 @@ import { normalizeTranscriptionResponse } from './normalizer';
 import { GroqTranscriptionProvider } from './providers/groqProvider';
 import { MockTranscriptionProvider } from './providers/mockProvider';
 import type { TranscriptionProvider, TranscriptionResponse } from './types';
-import { getProject, updateProject } from '../projects/service';
+import { getProject, updateProject, upsertLocalProject } from '../projects/service';
 import { StartTranscriptionSchema, type StartTranscriptionInput } from '../../shared/schemas';
-import type { CaptionSegment, TranscriptionJobProgress, TranscriptionJobStatus } from '../../shared/types';
+import type { CaptionSegment, TranscriptionJobProgress, TranscriptionJobStatus, ProjectRecord } from '../../shared/types';
 import { IPC_CHANNELS } from '../../shared/ipc';
 
 export interface ActiveJob {
@@ -129,6 +130,7 @@ export class TranscriptionJobManager {
       progress: job.progress,
       stage: job.stage,
       error: job.error,
+      captionSegments: job.result,
     };
 
     try {
@@ -159,13 +161,64 @@ export class TranscriptionJobManager {
     const input = parseResult.data;
     const provider = providerOverride || this.getProvider();
 
+    const isTransientProjectId =
+      input.projectId.startsWith('proj-') ||
+      input.projectId.startsWith('demo-') ||
+      input.projectId.startsWith('temp-');
+
     // 1. Ownership and Project Verification
+    let project: ProjectRecord;
     const projectResult = await getProject(userId, input.projectId);
-    if (!projectResult.success || !projectResult.project) {
+    if (projectResult.success && projectResult.project) {
+      project = projectResult.project;
+    } else if (isTransientProjectId) {
+      // Allow transient / in-memory active project session (e.g. initial proj-1)
+      const now = new Date().toISOString();
+      const transientProject: ProjectRecord = {
+        id: input.projectId,
+        userId,
+        name: 'Viral Short Project #1',
+        aspectRatio: '9:16',
+        captionStyle: {
+          presetId: 'hormozi',
+          fontFamily: 'Montserrat, sans-serif',
+          fontSize: 48,
+          fontWeight: 900,
+          allCaps: true,
+          letterSpacing: 1.5,
+          lineHeight: 1.15,
+          textColor: '#FFFFFF',
+          activeWordColor: '#10B981',
+          strokeColor: '#000000',
+          strokeWidth: 6,
+          hasShadow: true,
+          shadowColor: 'rgba(0,0,0,0.8)',
+          shadowBlur: 14,
+          shadowOffsetY: 4,
+          hasBox: false,
+          boxColor: 'rgba(0,0,0,0.6)',
+          boxPaddingX: 16,
+          boxPaddingY: 8,
+          boxCornerRadius: 12,
+          positionYPercent: 22,
+          positionXPercent: 50,
+        },
+        captionSegments: [],
+        videoId: null,
+        videoStoragePath: input.videoFilePath || null,
+        videoName: input.videoFilePath ? path.basename(input.videoFilePath) : null,
+        videoDurationMs: null,
+        videoWidth: null,
+        videoHeight: null,
+        videoFps: null,
+        version: 1,
+        createdAt: now,
+        updatedAt: now,
+      };
+      project = upsertLocalProject(transientProject);
+    } else {
       throw new Error(projectResult.error || 'Project not found or access denied.');
     }
-
-    const project = projectResult.project;
 
     // 2. Identify Video File Path
     let videoFilePath = input.videoFilePath;

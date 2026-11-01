@@ -195,6 +195,94 @@ export interface GenerateAssOptions {
   enableAnimation?: boolean;
 }
 
+export interface AssAnimationPrefixOptions {
+  animPreset: string;
+  entranceDuration: number;
+  exitDuration: number;
+  playResX: number;
+  playResY: number;
+  marginV: number;
+  letterSpacingPx: number;
+  isFirstEvent: boolean;
+  isLastEvent: boolean;
+  inlineTags?: string;
+  enableAnimation?: boolean;
+}
+
+/**
+ * Builds rich ASS animation and motion override tags matching the editor preview.
+ * Fully supports pop spring scale, elastic zoom, squash & stretch bounce, slide-up, slide-down,
+ * letter-spacing reveal, and smooth alpha fade transitions.
+ */
+export function buildAssAnimationPrefix(opts: AssAnimationPrefixOptions): string {
+  const {
+    animPreset,
+    entranceDuration,
+    exitDuration,
+    playResX,
+    playResY,
+    marginV,
+    letterSpacingPx,
+    isFirstEvent,
+    isLastEvent,
+    inlineTags = '',
+    enableAnimation = true,
+  } = opts;
+
+  if (!enableAnimation) {
+    return inlineTags ? `{${inlineTags}}` : '';
+  }
+
+  const inMs = isFirstEvent ? entranceDuration : 0;
+  const outMs = isLastEvent ? exitDuration : 0;
+  const baseFade = inMs > 0 || outMs > 0 ? `\\fad(${inMs},${outMs})` : '';
+
+  let motionTag = '';
+
+  if (isFirstEvent && entranceDuration > 0) {
+    switch (animPreset) {
+      case 'pop': {
+        const midTime = Math.max(50, Math.round(entranceDuration * 0.65));
+        motionTag = `\\fscx75\\fscy75\\t(0,${midTime},\\fscx110\\fscy110)\\t(${midTime},${entranceDuration},\\fscx100\\fscy100)`;
+        break;
+      }
+      case 'scale':
+      case 'emphasis-scale': {
+        motionTag = `\\fscx70\\fscy70\\t(0,${entranceDuration},\\fscx100\\fscy100)`;
+        break;
+      }
+      case 'bounce': {
+        const t1 = Math.max(40, Math.round(entranceDuration * 0.45));
+        const t2 = Math.max(t1 + 20, Math.round(entranceDuration * 0.75));
+        motionTag = `\\fscy125\\fscx90\\t(0,${t1},\\fscy90\\fscx112)\\t(${t1},${t2},\\fscy105\\fscx98)\\t(${t2},${entranceDuration},\\fscy100\\fscx100)`;
+        break;
+      }
+      case 'slide-up': {
+        const targetY = playResY - marginV;
+        const startY = targetY + Math.round(55 * (playResY / 1920));
+        motionTag = `\\move(${Math.round(playResX / 2)},${startY},${Math.round(playResX / 2)},${targetY},0,${entranceDuration})`;
+        break;
+      }
+      case 'slide-down': {
+        const targetY = playResY - marginV;
+        const startY = targetY - Math.round(55 * (playResY / 1920));
+        motionTag = `\\move(${Math.round(playResX / 2)},${startY},${Math.round(playResX / 2)},${targetY},0,${entranceDuration})`;
+        break;
+      }
+      case 'cinematic-letter-reveal': {
+        const spreadSpacing = Math.round(letterSpacingPx + 8 * (playResX / 1080));
+        motionTag = `\\fsp${spreadSpacing}\\t(0,${entranceDuration},\\fsp${letterSpacingPx})`;
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
+  const combined = [baseFade, motionTag, inlineTags].filter(Boolean).join('');
+  return combined ? `{${combined}}` : '';
+}
+
 /**
  * Generates Advanced SubStation Alpha (.ass) subtitle file content for FFmpeg burn-in rendering.
  * Fully supports:
@@ -209,7 +297,15 @@ export interface GenerateAssOptions {
  * - Karaoke highlight timing tags ({\k<cs>}) when word timings are available
  */
 export function exportToAss(options: GenerateAssOptions): string {
-  const { segments, style, videoWidth, videoHeight, title = 'AutoCaption Export', enableWordEmphasis = false } = options;
+  const {
+    segments,
+    style,
+    videoWidth,
+    videoHeight,
+    title = 'AutoCaption Export',
+    enableWordEmphasis = false,
+    enableAnimation = true,
+  } = options;
 
   const sorted = [...segments].sort((a, b) => a.startMs - b.startMs);
 
@@ -226,6 +322,8 @@ export function exportToAss(options: GenerateAssOptions): string {
 
   const fontSize = norm.fontSizePx;
   const primaryFontFamily = norm.primaryFontName;
+  const secondaryFontFamily = norm.secondaryFontName;
+  const secondaryFontWeight = norm.secondaryFontWeight;
   const isBold = norm.fontWeight >= 700 ? -1 : 0;
   const primaryColor = colorToAssColor(norm.textColor);
   const secondaryColor = colorToAssColor(norm.activeWordColor);
@@ -241,7 +339,9 @@ export function exportToAss(options: GenerateAssOptions): string {
 
   // BorderStyle: 1 = Outline + Drop Shadow; 3 = Opaque Box backdrop
   const borderStyle = norm.hasBox ? 3 : 1;
-  const outlineWidth = norm.hasBox ? 2 : norm.strokeWidthPx;
+  const outlineWidth = norm.hasBox
+    ? Math.max(8, norm.boxPaddingXPx || 12)
+    : (norm.hasStroke ? norm.strokeWidthPx : 0);
   const shadowDepth = norm.hasBox ? 0 : (norm.hasShadow ? Math.max(2, norm.shadowOffsetY) : 0);
 
   // Alignment: 2 = Bottom-Center, 1 = Bottom-Left, 3 = Bottom-Right
@@ -368,8 +468,8 @@ export function exportToAss(options: GenerateAssOptions): string {
           const wordText = segNorm.textTransform === 'uppercase'
             ? w.text.toUpperCase()
             : segNorm.textTransform === 'lowercase'
-            ? w.text.toLowerCase()
-            : w.text;
+              ? w.text.toLowerCase()
+              : w.text;
           return `{${kTag}${durCs}}${wordText}`;
         })
         .join(' ')
@@ -379,7 +479,7 @@ export function exportToAss(options: GenerateAssOptions): string {
       const end = formatAssTimestamp(seg.endMs);
       assLines.push(`Dialogue: 0,${start},${end},${lineStyle},,0,0,0,,${tagPrefix}${dialogueContent}`);
     }
-    // 2. Timed Active Word Emphasis for all other presets (cinematic-trailer, fade, pop, etc.)
+    // 2. Timed Active Word Emphasis for all other presets (pop, scale, slide, bounce, fade, etc.)
     else if (hasWords && segNorm.hasWordEmphasis && enableWordEmphasis) {
       const goldColor = toInlineAssColor(segNorm.activeWordColor);
       const baseColor = toInlineAssColor(segNorm.textColor);
@@ -392,8 +492,28 @@ export function exportToAss(options: GenerateAssOptions): string {
         const preStart = formatAssTimestamp(seg.startMs);
         const preEnd = formatAssTimestamp(words[0]!.startMs);
         const preText = transformedText.replace(/\r?\n/g, '\\N');
-        assLines.push(`Dialogue: 0,${preStart},${preEnd},${lineStyle},,0,0,0,,{\\fad(${entranceDuration},0)}${preText}`);
+        const prePrefix = buildAssAnimationPrefix({
+          animPreset,
+          entranceDuration,
+          exitDuration,
+          playResX,
+          playResY,
+          marginV,
+          letterSpacingPx: norm.letterSpacingPx,
+          isFirstEvent: true,
+          isLastEvent: false,
+          inlineTags,
+          enableAnimation,
+        });
+        assLines.push(`Dialogue: 0,${preStart},${preEnd},${lineStyle},,0,0,0,,${prePrefix}${preText}`);
       }
+
+      const activeScale = Math.round((segNorm.activeWordScale || 1.15) * 100);
+      const strokeW = norm.hasStroke && norm.strokeWidthPx > 0
+        ? Math.max(norm.strokeWidthPx, 4)
+        : (norm.hasStroke ? 4 : 0);
+      const activeStrokeTag = strokeW > 0 ? `\\3c${outlineColor}\\bord${strokeW}` : '';
+      const activeShadowTag = norm.hasShadow ? `\\4c${shadowColor}\\shad${Math.max(2, shadowDepth)}` : '';
 
       // Generate a timed dialogue event for each word interval
       for (let i = 0; i < count; i++) {
@@ -410,29 +530,57 @@ export function exportToAss(options: GenerateAssOptions): string {
         const isFirstEvent = i === 0 && wordStartMs <= seg.startMs + 60;
         const isLastEvent = i === count - 1 && wordEndMs >= seg.endMs - 60;
 
-        let fadeTag = '';
-        if (isFirstEvent && isLastEvent) {
-          fadeTag = `\\fad(${entranceDuration},${exitDuration})`;
-        } else if (isFirstEvent) {
-          fadeTag = `\\fad(${entranceDuration},0)`;
-        } else if (isLastEvent) {
-          fadeTag = `\\fad(0,${exitDuration})`;
-        }
+        const prefix = buildAssAnimationPrefix({
+          animPreset,
+          entranceDuration,
+          exitDuration,
+          playResX,
+          playResY,
+          marginV,
+          letterSpacingPx: norm.letterSpacingPx,
+          isFirstEvent,
+          isLastEvent,
+          inlineTags,
+          enableAnimation,
+        });
 
-        const tags = [fadeTag, inlineTags].filter(Boolean).join('');
-        const prefix = tags ? `{${tags}}` : '';
-
-        // Build line text with the i-th word highlighted in golden accent
+        // Build line text with the i-th word highlighted with full boldness, secondary font & motion
         const lineText = words
           .map((w, idx) => {
             const wText = segNorm.textTransform === 'uppercase'
               ? w.text.toUpperCase()
               : segNorm.textTransform === 'lowercase'
-              ? w.text.toLowerCase()
-              : w.text;
-            if (idx === i) {
-              return `{\\c${goldColor}}${wText}{\\c${baseColor}}`;
+                ? w.text.toLowerCase()
+                : w.text;
+
+            const isActive = idx === i;
+            const isMainKeyword = Boolean(w.highlighted);
+
+            if (isActive) {
+              const activeFont = (isMainKeyword && secondaryFontFamily)
+                ? secondaryFontFamily
+                : (secondaryFontFamily || primaryFontFamily);
+              const activeWeight = (isMainKeyword && secondaryFontWeight)
+                ? secondaryFontWeight
+                : 900;
+              const activeBold = activeWeight >= 700 ? 1 : 0;
+
+              let wordMotionTag = `\\fscx${activeScale}\\fscy${activeScale}`;
+              if (animPreset === 'pop' || animPreset === 'bounce' || animPreset === 'emphasis-scale') {
+                const burstScale = activeScale + 12;
+                wordMotionTag = `\\fscx${burstScale}\\fscy${burstScale}\\t(0,110,\\fscx${activeScale}\\fscy${activeScale})`;
+              }
+
+              return `{\\fn${activeFont}\\b${activeBold}${activeStrokeTag}${activeShadowTag}${wordMotionTag}\\c${goldColor}}${wText}{\\fn${primaryFontFamily}\\b${isBold ? 1 : 0}\\fscx100\\fscy100\\bord${outlineWidth}\\3c${outlineColor}\\shad${shadowDepth}\\c${baseColor}}`;
             }
+
+            if (isMainKeyword) {
+              const keywordFont = secondaryFontFamily || primaryFontFamily;
+              const keywordWeight = secondaryFontWeight || 800;
+              const keywordBold = keywordWeight >= 700 ? 1 : 0;
+              return `{\\fn${keywordFont}\\b${keywordBold}\\c${goldColor}${activeStrokeTag}${activeShadowTag}\\fscx106\\fscy106}${wText}{\\fn${primaryFontFamily}\\b${isBold ? 1 : 0}\\fscx100\\fscy100\\bord${outlineWidth}\\3c${outlineColor}\\shad${shadowDepth}\\c${baseColor}}`;
+            }
+
             return wText;
           })
           .join(' ')
@@ -447,26 +595,72 @@ export function exportToAss(options: GenerateAssOptions): string {
         const postStart = formatAssTimestamp(lastWord.endMs);
         const postEnd = formatAssTimestamp(seg.endMs);
         const postText = transformedText.replace(/\r?\n/g, '\\N');
-        assLines.push(`Dialogue: 0,${postStart},${postEnd},${lineStyle},,0,0,0,,{\\fad(0,${exitDuration})}${postText}`);
+        const postPrefix = buildAssAnimationPrefix({
+          animPreset,
+          entranceDuration,
+          exitDuration,
+          playResX,
+          playResY,
+          marginV,
+          letterSpacingPx: norm.letterSpacingPx,
+          isFirstEvent: false,
+          isLastEvent: true,
+          inlineTags,
+          enableAnimation,
+        });
+        assLines.push(`Dialogue: 0,${postStart},${postEnd},${lineStyle},,0,0,0,,${postPrefix}${postText}`);
       }
     }
     // 3. Segment without word timings or standard whole-segment animation
     else {
-      let fadeTag = '';
-      if (animPreset === 'fade' || animPreset === 'fade-in' || animPreset === 'fade-out') {
-        const inMs = animPreset === 'fade-out' ? 0 : entranceDuration;
-        const outMs = animPreset === 'fade-in' ? 0 : exitDuration;
-        fadeTag = `\\fad(${inMs},${outMs})`;
-      } else if (entranceDuration > 0 || exitDuration > 0) {
-        fadeTag = `\\fad(${entranceDuration},${exitDuration})`;
-      }
+      const prefix = buildAssAnimationPrefix({
+        animPreset,
+        entranceDuration,
+        exitDuration,
+        playResX,
+        playResY,
+        marginV,
+        letterSpacingPx: norm.letterSpacingPx,
+        isFirstEvent: true,
+        isLastEvent: true,
+        inlineTags,
+        enableAnimation,
+      });
 
-      const tags = [fadeTag, inlineTags].filter(Boolean).join('');
-      const prefix = tags ? `{${tags}}` : '';
       const start = formatAssTimestamp(seg.startMs);
       const end = formatAssTimestamp(seg.endMs);
-      const cleanText = transformedText.replace(/\r?\n/g, '\\N');
 
+      let textToRender = transformedText;
+      if (hasWords) {
+        const goldColor = toInlineAssColor(segNorm.activeWordColor);
+        const baseColor = toInlineAssColor(segNorm.textColor);
+        const hasExplicit = seg.words!.some((w) => w.highlighted);
+        if (hasExplicit) {
+          textToRender = seg.words!
+            .map((w) => {
+              const wText = segNorm.textTransform === 'uppercase'
+                ? w.text.toUpperCase()
+                : segNorm.textTransform === 'lowercase'
+                  ? w.text.toLowerCase()
+                  : w.text;
+              if (w.highlighted) {
+                const keywordFont = secondaryFontFamily || primaryFontFamily;
+                const keywordWeight = secondaryFontWeight || 800;
+                const keywordBold = keywordWeight >= 700 ? 1 : 0;
+                const strokeW = norm.hasStroke && norm.strokeWidthPx > 0
+                  ? Math.max(norm.strokeWidthPx, 4)
+                  : (norm.hasStroke ? 4 : 0);
+                const activeStrokeTag = strokeW > 0 ? `\\3c${outlineColor}\\bord${strokeW}` : '';
+                const activeShadowTag = norm.hasShadow ? `\\4c${shadowColor}\\shad${Math.max(2, shadowDepth)}` : '';
+                return `{\\fn${keywordFont}\\b${keywordBold}\\fscx108\\fscy108\\c${goldColor}${activeStrokeTag}${activeShadowTag}}${wText}{\\fn${primaryFontFamily}\\b${isBold ? 1 : 0}\\fscx100\\fscy100\\bord${outlineWidth}\\3c${outlineColor}\\shad${shadowDepth}\\c${baseColor}}`;
+              }
+              return wText;
+            })
+            .join(' ');
+        }
+      }
+
+      const cleanText = textToRender.replace(/\r?\n/g, '\\N');
       assLines.push(`Dialogue: 0,${start},${end},${lineStyle},,0,0,0,,${prefix}${cleanText}`);
     }
   });

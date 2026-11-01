@@ -9,6 +9,8 @@ export const CaptionWordSchema = z.object({
   endMs: z.number().nonnegative(),
   highlighted: z.boolean().optional(),
   confidence: z.number().optional(),
+  fontFamily: z.string().optional(),
+  fontWeight: z.number().optional(),
 });
 
 export const CaptionAnimationPresetSchema = z.enum([
@@ -85,6 +87,7 @@ export const CaptionStyleSchema = z.object({
   textAlign: TextAlignmentSchema.default('center'),
   maxWidthPercent: z.number().min(20).max(100).default(90),
 
+  hasStroke: z.boolean().optional(),
   strokeColor: z.string().default('#000000'),
   strokeWidth: z.number().nonnegative().default(0),
 
@@ -110,6 +113,7 @@ export const CaptionStyleSchema = z.object({
   activeWordBgColor: z.string().optional(),
   highlightStyle: z.enum(['word', 'sweep', 'pill', 'box']).optional(),
   secondaryFontFamily: z.string().optional(),
+  secondaryFontWeight: z.number().min(100).max(1000).optional(),
   decorativeElement: z.enum(['none', 'underline', 'dot', 'badge', 'line']).optional(),
 
   animationType: CaptionAnimationPresetSchema.optional(),

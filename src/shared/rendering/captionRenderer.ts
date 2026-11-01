@@ -5,10 +5,11 @@ import type {
 } from '../types';
 
 export const BASE_CANVAS_SHORT_DIM = 1080;
-export const FONT_SCALE_MULTIPLIER = 1.75; // Proportional scaling from template style base to 1080p reference canvas
+export const FONT_SCALE_MULTIPLIER = 2.1; // Proportional scaling from template style base to 1080p reference canvas
 
 export interface NormalizedCaptionRendering {
   fontSizePx: number;
+  hasStroke: boolean;
   strokeWidthPx: number;
   strokeColor: string;
   hasShadow: boolean;
@@ -25,6 +26,9 @@ export interface NormalizedCaptionRendering {
   fontFamily: string;
   primaryFontName: string;
   fallbackFontNames: string[];
+  secondaryFontFamily?: string;
+  secondaryFontName?: string;
+  secondaryFontWeight?: number;
   fontWeight: number;
   textColor: string;
   activeWordColor: string;
@@ -50,6 +54,9 @@ export interface NormalizedWordRendering {
   isActive: boolean;
   isPast: boolean;
   isFuture: boolean;
+  isMainWord?: boolean;
+  fontFamily?: string;
+  fontWeight?: number;
   color: string;
   backgroundColor?: string;
   scale: number;
@@ -157,9 +164,12 @@ export function resolveNormalizedCaptionRendering(
 
   // Proportional typography sizing
   const fontSizePx = Math.round(effectiveStyle.fontSize * FONT_SCALE_MULTIPLIER * scale);
-  const strokeWidthPx = effectiveStyle.strokeWidth > 0
+  const hasStroke = effectiveStyle.hasStroke !== undefined
+    ? Boolean(effectiveStyle.hasStroke)
+    : effectiveStyle.strokeWidth > 0;
+  const strokeWidthPx = hasStroke && effectiveStyle.strokeWidth > 0
     ? Math.max(1, Math.round(effectiveStyle.strokeWidth * FONT_SCALE_MULTIPLIER * scale * 0.75))
-    : 0;
+    : (hasStroke ? Math.max(1, Math.round(4 * FONT_SCALE_MULTIPLIER * scale * 0.75)) : 0);
 
   const shadowOffsetX = Math.round((effectiveStyle.shadowOffsetX ?? 0) * scale * 1.5);
   const shadowOffsetY = Math.round((effectiveStyle.shadowOffsetY ?? 2) * scale * 1.5);
@@ -172,6 +182,12 @@ export function resolveNormalizedCaptionRendering(
 
   const isHindi = segment ? DEVANAGARI_REGEX.test(segment.text) : false;
   const { primaryFontName, fallbackFontNames } = resolveFontNames(effectiveStyle.fontFamily, isHindi);
+
+  let secondaryFontName: string | undefined;
+  if (effectiveStyle.secondaryFontFamily) {
+    const resolvedSecondary = resolveFontNames(effectiveStyle.secondaryFontFamily, isHindi);
+    secondaryFontName = resolvedSecondary.primaryFontName;
+  }
 
   // Text transformation
   let textTransform: 'none' | 'uppercase' | 'lowercase' | 'capitalize' = 'none';
@@ -196,6 +212,23 @@ export function resolveNormalizedCaptionRendering(
       const isPast = time > w.endMs;
       const isFuture = time < w.startMs;
 
+      const isExplicitMainWord = Boolean(w.highlighted);
+      const isMainWord = isExplicitMainWord || (isActive && hasWordEmphasis);
+
+      let wordFontFamily = effectiveStyle.fontFamily;
+      let wordFontWeight = effectiveStyle.fontWeight || 700;
+
+      if (effectiveStyle.secondaryFontFamily && isMainWord) {
+        wordFontFamily = effectiveStyle.secondaryFontFamily;
+        wordFontWeight = effectiveStyle.secondaryFontWeight || 900;
+      }
+      if (w.fontFamily) {
+        wordFontFamily = w.fontFamily;
+      }
+      if (w.fontWeight) {
+        wordFontWeight = w.fontWeight;
+      }
+
       let color = effectiveStyle.textColor;
       let scale = 1;
       const opacity = 1;
@@ -214,8 +247,12 @@ export function resolveNormalizedCaptionRendering(
           if (isActive) {
             color = activeWordColor;
             scale = activeWordScale;
+          } else if (isExplicitMainWord) {
+            color = activeWordColor;
           }
         }
+      } else if (isExplicitMainWord) {
+        color = activeWordColor;
       }
 
       let transformedText = w.text;
@@ -235,6 +272,9 @@ export function resolveNormalizedCaptionRendering(
         isActive,
         isPast,
         isFuture,
+        isMainWord,
+        fontFamily: wordFontFamily,
+        fontWeight: wordFontWeight,
         color,
         backgroundColor: isActive ? backgroundColor : undefined,
         scale,
@@ -246,6 +286,7 @@ export function resolveNormalizedCaptionRendering(
 
   return {
     fontSizePx,
+    hasStroke,
     strokeWidthPx,
     strokeColor: effectiveStyle.strokeColor || '#000000',
     hasShadow: effectiveStyle.hasShadow,
@@ -262,6 +303,9 @@ export function resolveNormalizedCaptionRendering(
     fontFamily: effectiveStyle.fontFamily,
     primaryFontName,
     fallbackFontNames,
+    secondaryFontFamily: effectiveStyle.secondaryFontFamily,
+    secondaryFontName,
+    secondaryFontWeight: effectiveStyle.secondaryFontWeight || 900,
     fontWeight: effectiveStyle.fontWeight || 700,
     textColor: effectiveStyle.textColor || '#FFFFFF',
     activeWordColor,

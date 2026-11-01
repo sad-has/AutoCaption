@@ -27,6 +27,9 @@ export interface ComputedWordAnimation {
   scale: number;
   backgroundColor?: string;
   isHighlighted: boolean;
+  isMainWord?: boolean;
+  fontFamily?: string;
+  fontWeight?: number;
   blurPx?: number;
   transform: string;
 }
@@ -195,14 +198,29 @@ export function computeCaptionAnimation(options: ComputeAnimationOptions): Compu
     if (wordsReliable && segment.words) {
       wordStates = segment.words.map((word) => {
         const isActive = currentTimeMs >= word.startMs && currentTimeMs <= word.endMs;
+        const isExplicitMainWord = Boolean(word.highlighted);
+        const isMainWord = isExplicitMainWord || (isActive && hasWordEmphasis);
+
+        let wordFont = style.fontFamily;
+        let wordWeight = style.fontWeight || 700;
+        if (style.secondaryFontFamily && isMainWord) {
+          wordFont = style.secondaryFontFamily;
+          wordWeight = style.secondaryFontWeight || 900;
+        }
+        if (word.fontFamily) wordFont = word.fontFamily;
+        if (word.fontWeight) wordWeight = word.fontWeight;
+
         return {
           id: word.id,
           text: word.text,
           isVisible: true,
           opacity: 1,
-          color: isActive && hasWordEmphasis ? highlightColor : style.textColor,
+          color: (isActive && hasWordEmphasis) || isExplicitMainWord ? highlightColor : style.textColor,
           scale: 1,
-          isHighlighted: isActive && hasWordEmphasis,
+          isHighlighted: (isActive && hasWordEmphasis) || isExplicitMainWord,
+          isMainWord,
+          fontFamily: wordFont,
+          fontWeight: wordWeight,
           transform: 'none',
         };
       });
@@ -410,6 +428,22 @@ export function computeCaptionAnimation(options: ComputeAnimationOptions): Compu
         }
       }
 
+      const isExplicitMainWord = Boolean(word.highlighted);
+      const isMainWord = isExplicitMainWord || (isActive && hasWordEmphasis);
+
+      let wordFont = style.fontFamily;
+      let wordWeight = style.fontWeight || 700;
+      if (style.secondaryFontFamily && isMainWord) {
+        wordFont = style.secondaryFontFamily;
+        wordWeight = style.secondaryFontWeight || 900;
+      }
+      if (word.fontFamily) wordFont = word.fontFamily;
+      if (word.fontWeight) wordWeight = word.fontWeight;
+
+      if (isExplicitMainWord && !isActive && wordColor === style.textColor) {
+        wordColor = highlightColor;
+      }
+
       wordTransform = wordScale !== 1 ? `scale(${wordScale.toFixed(3)})` : 'none';
 
       return {
@@ -420,7 +454,10 @@ export function computeCaptionAnimation(options: ComputeAnimationOptions): Compu
         color: wordColor,
         scale: wordScale,
         backgroundColor: isActive && hasWordEmphasis ? wordBgColor : undefined,
-        isHighlighted: isActive && hasWordEmphasis,
+        isHighlighted: (isActive && hasWordEmphasis) || isExplicitMainWord,
+        isMainWord,
+        fontFamily: wordFont,
+        fontWeight: wordWeight,
         transform: wordTransform,
       };
     });

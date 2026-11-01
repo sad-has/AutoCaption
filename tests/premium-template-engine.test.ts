@@ -15,6 +15,7 @@ import type { CaptionSegment, CaptionStyle, CaptionTemplate } from '../src/share
 import { useAppStore, defaultFallbackStyle } from '../src/renderer/src/store/useAppStore';
 import { computeCaptionAnimation } from '../src/shared/animations/engine';
 import { exportToAss, getAnimationExportSupport } from '../src/shared/export/subtitles';
+import { resolveNormalizedCaptionRendering } from '../src/shared/rendering/captionRenderer';
 
 describe('Phase 11: Premium Caption Template Engine', () => {
   beforeEach(() => {
@@ -66,12 +67,12 @@ describe('Phase 11: Premium Caption Template Engine', () => {
   });
 
   describe('1. Template Library & Signature Presets Integrity', () => {
-    it('contains all 18 built-in templates (12 legacy + 6 Phase 11 premium presets)', () => {
+    it('contains all 23 built-in templates (12 legacy + 6 Phase 11 premium + 5 dual-font presets)', () => {
       const templates = getBuiltInTemplates();
-      expect(templates.length).toBe(18);
+      expect(templates.length).toBe(23);
 
       const ids = templates.map((t) => t.id);
-      expect(new Set(ids).size).toBe(18); // Unique IDs guarantee
+      expect(new Set(ids).size).toBe(23); // Unique IDs guarantee
 
       // Verify 6 signature presets from Phase 11
       const signatureIds = [
@@ -361,6 +362,235 @@ describe('Phase 11: Premium Caption Template Engine', () => {
 
       const scaleCap = getAnimationExportSupport('scale');
       expect(scaleCap.status).toBe('fallback');
+    });
+  });
+
+  describe('6. Dual-Font Templates & Keyword Font Pairing Engine', () => {
+    const dualFontIds = [
+      'viral-impact-duo',
+      'editorial-glamour',
+      'cyber-tech-punch',
+      'cinematic-chronicle',
+      'comic-pop-arcade',
+    ];
+
+    it('contains at least 5 distinct dual-font templates with paired primary and secondary fonts', () => {
+      dualFontIds.forEach((id) => {
+        const tpl = getTemplateById(id);
+        expect(tpl).toBeDefined();
+        expect(tpl?.isBuiltIn).toBe(true);
+        expect(tpl?.style.fontFamily).toBeTruthy();
+        expect(tpl?.style.secondaryFontFamily).toBeTruthy();
+        expect(tpl?.style.fontFamily).not.toEqual(tpl?.style.secondaryFontFamily);
+      });
+    });
+
+    it('resolves secondary font family for highlighted words in normalized caption rendering', () => {
+      const tpl = getTemplateById('viral-impact-duo')!;
+      const testSeg: CaptionSegment = {
+        id: 'seg-dual-1',
+        startMs: 0,
+        endMs: 2000,
+        text: 'MAKE IT VIRAL NOW',
+        words: [
+          { id: 'w1', text: 'MAKE', startMs: 0, endMs: 400 },
+          { id: 'w2', text: 'IT', startMs: 400, endMs: 800 },
+          { id: 'w3', text: 'VIRAL', startMs: 800, endMs: 1400, highlighted: true },
+          { id: 'w4', text: 'NOW', startMs: 1400, endMs: 2000 },
+        ],
+      };
+
+      const normalized = resolveNormalizedCaptionRendering({
+        segment: testSeg,
+        style: tpl.style,
+        currentTimeMs: 100,
+        canvasWidth: 1080,
+        canvasHeight: 1920,
+      });
+
+      expect(normalized.secondaryFontFamily).toBeTruthy();
+      expect(normalized.secondaryFontName).toBe('Anton');
+      const highlightedWord = normalized.words?.find((w) => w.isMainWord);
+      expect(highlightedWord).toBeDefined();
+      expect(highlightedWord?.fontFamily).toBe(tpl.style.secondaryFontFamily);
+    });
+
+    it('computes distinct font family in animation engine for highlighted main words', () => {
+      const tpl = getTemplateById('editorial-glamour')!;
+      const testSeg: CaptionSegment = {
+        id: 'seg-dual-2',
+        startMs: 0,
+        endMs: 2000,
+        text: 'ELEGANT LUXURY AURA',
+        words: [
+          { id: 'w1', text: 'ELEGANT', startMs: 0, endMs: 600 },
+          { id: 'w2', text: 'LUXURY', startMs: 600, endMs: 1400, highlighted: true },
+          { id: 'w3', text: 'AURA', startMs: 1400, endMs: 2000 },
+        ],
+      };
+
+      const anim = computeCaptionAnimation({
+        currentTimeMs: 1000,
+        segment: testSeg,
+        style: tpl.style,
+      });
+
+      expect(anim.isVisible).toBe(true);
+      const highlightedState = anim.wordStates?.find((w) => w.isMainWord);
+      expect(highlightedState).toBeDefined();
+      expect(highlightedState?.fontFamily).toBe(tpl.style.secondaryFontFamily);
+    });
+
+    it('exports ASS subtitles with inline \\fn override tags for dual-font keywords', () => {
+      const tpl = getTemplateById('viral-impact-duo')!;
+      const testSegs: CaptionSegment[] = [
+        {
+          id: 'seg-dual-3',
+          startMs: 0,
+          endMs: 2000,
+          text: 'GO VIRAL TODAY',
+          words: [
+            { id: 'w1', text: 'GO', startMs: 0, endMs: 500 },
+            { id: 'w2', text: 'VIRAL', startMs: 500, endMs: 1500, highlighted: true },
+            { id: 'w3', text: 'TODAY', startMs: 1500, endMs: 2000 },
+          ],
+        },
+      ];
+
+      const ass = exportToAss({
+        segments: testSegs,
+        style: tpl.style,
+        videoWidth: 1080,
+        videoHeight: 1920,
+        title: 'Dual-Font ASS Export',
+      });
+
+      // Verify that ASS contains \fn tags switching to Anton and back to Montserrat
+      expect(ass).toContain('\\fnAnton');
+      expect(ass).toContain('\\fnMontserrat');
+      // Verify boldness and active word burst scale are injected
+      expect(ass).toContain('\\b1');
+      expect(ass).toContain('\\fscx');
+    });
+
+    it('exports ASS subtitles with pop animation spring tags and active word burst for viral-impact-duo', () => {
+      const tpl = getTemplateById('viral-impact-duo')!;
+      const testSegs: CaptionSegment[] = [
+        {
+          id: 'seg-pop-1',
+          startMs: 0,
+          endMs: 1500,
+          text: 'PUNCHY VIRAL MOMENT',
+          words: [
+            { id: 'w1', text: 'PUNCHY', startMs: 0, endMs: 500 },
+            { id: 'w2', text: 'VIRAL', startMs: 500, endMs: 1000, highlighted: true },
+            { id: 'w3', text: 'MOMENT', startMs: 1000, endMs: 1500 },
+          ],
+        },
+      ];
+
+      const ass = exportToAss({
+        segments: testSegs,
+        style: tpl.style,
+        videoWidth: 1080,
+        videoHeight: 1920,
+        enableWordEmphasis: true,
+      });
+
+      // Spring pop entrance transform
+      expect(ass).toContain('\\fscx75\\fscy75\\t(');
+      // Word burst animation on active word
+      expect(ass).toContain('\\t(0,110,\\fscx');
+      // Prominent outline stroke on active word
+      expect(ass).toContain('\\bord');
+      expect(ass).toContain('\\b1');
+    });
+
+    it('exports ASS subtitles with vertical \\move animation tags for cyber-tech-punch', () => {
+      const tpl = getTemplateById('cyber-tech-punch')!;
+      const testSegs: CaptionSegment[] = [
+        {
+          id: 'seg-slide-1',
+          startMs: 0,
+          endMs: 1200,
+          text: 'CYBER TECH PUNCH',
+          words: [
+            { id: 'w1', text: 'CYBER', startMs: 0, endMs: 400 },
+            { id: 'w2', text: 'TECH', startMs: 400, endMs: 800, highlighted: true },
+            { id: 'w3', text: 'PUNCH', startMs: 800, endMs: 1200 },
+          ],
+        },
+      ];
+
+      const ass = exportToAss({
+        segments: testSegs,
+        style: tpl.style,
+        videoWidth: 1080,
+        videoHeight: 1920,
+        enableWordEmphasis: true,
+      });
+
+      // \move tag for slide-up motion
+      expect(ass).toContain('\\move(540,');
+      expect(ass).toContain('\\fnBebas Neue');
+    });
+
+    it('exports ASS subtitles with bounce keyframe transforms for comic-pop-arcade', () => {
+      const tpl = getTemplateById('comic-pop-arcade')!;
+      const testSegs: CaptionSegment[] = [
+        {
+          id: 'seg-bounce-1',
+          startMs: 0,
+          endMs: 1200,
+          text: 'RETRO ARCADE COMIC',
+          words: [
+            { id: 'w1', text: 'RETRO', startMs: 0, endMs: 400 },
+            { id: 'w2', text: 'ARCADE', startMs: 400, endMs: 800, highlighted: true },
+            { id: 'w3', text: 'COMIC', startMs: 800, endMs: 1200 },
+          ],
+        },
+      ];
+
+      const ass = exportToAss({
+        segments: testSegs,
+        style: tpl.style,
+        videoWidth: 1080,
+        videoHeight: 1920,
+        enableWordEmphasis: true,
+      });
+
+      // Squash and stretch bounce tag
+      expect(ass).toContain('\\fscy125\\fscx90');
+      expect(ass).toContain('\\fnRighteous');
+    });
+
+    it('exports ASS subtitles with letter spacing interpolation for cinematic-chronicle', () => {
+      const tpl = getTemplateById('cinematic-chronicle')!;
+      const testSegs: CaptionSegment[] = [
+        {
+          id: 'seg-cin-1',
+          startMs: 0,
+          endMs: 1500,
+          text: 'LEGENDARY CHRONICLE HERO',
+          words: [
+            { id: 'w1', text: 'LEGENDARY', startMs: 0, endMs: 500 },
+            { id: 'w2', text: 'CHRONICLE', startMs: 500, endMs: 1000, highlighted: true },
+            { id: 'w3', text: 'HERO', startMs: 1000, endMs: 1500 },
+          ],
+        },
+      ];
+
+      const ass = exportToAss({
+        segments: testSegs,
+        style: tpl.style,
+        videoWidth: 1080,
+        videoHeight: 1920,
+        enableWordEmphasis: true,
+      });
+
+      // Letter spacing \fsp tag
+      expect(ass).toContain('\\fsp');
+      expect(ass).toContain('\\fnCinzel');
     });
   });
 });

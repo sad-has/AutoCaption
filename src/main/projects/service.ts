@@ -73,6 +73,21 @@ function saveRecoverySnapshot(project: ProjectRecord): void {
 }
 
 /**
+ * Directly upserts a project in local cache and disk snapshot.
+ */
+export function upsertLocalProject(project: ProjectRecord): ProjectRecord {
+  const existingIdx = localProjectsCache.findIndex((p) => p.id === project.id);
+  if (existingIdx >= 0) {
+    localProjectsCache[existingIdx] = project;
+  } else {
+    localProjectsCache.unshift(project);
+  }
+  saveLocalProjects();
+  saveRecoverySnapshot(project);
+  return project;
+}
+
+/**
  * List all projects owned by the authenticated user.
  * RLS rule: auth.uid() = user_id
  */
@@ -284,6 +299,52 @@ export async function updateProject(userId: string, rawInput: UpdateProjectInput
   const currentResult = await getProject(userId, input.id);
 
   if (!currentResult.success || !currentResult.project) {
+    const isTransient = input.id.startsWith('proj-') || input.id.startsWith('demo-') || input.id.startsWith('temp-');
+    if (isTransient) {
+      const now = new Date().toISOString();
+      const newRecord: ProjectRecord = {
+        id: input.id,
+        userId,
+        name: input.name || 'Viral Short Project #1',
+        aspectRatio: input.aspectRatio || '9:16',
+        captionStyle: input.captionStyle || {
+          presetId: 'hormozi',
+          fontFamily: 'Montserrat, sans-serif',
+          fontSize: 48,
+          fontWeight: 900,
+          allCaps: true,
+          letterSpacing: 1.5,
+          lineHeight: 1.15,
+          textColor: '#FFFFFF',
+          activeWordColor: '#10B981',
+          strokeColor: '#000000',
+          strokeWidth: 6,
+          hasShadow: true,
+          shadowColor: 'rgba(0,0,0,0.8)',
+          shadowBlur: 14,
+          shadowOffsetY: 4,
+          hasBox: false,
+          boxColor: 'rgba(0,0,0,0.6)',
+          boxPaddingX: 16,
+          boxPaddingY: 8,
+          boxCornerRadius: 12,
+          positionYPercent: 22,
+          positionXPercent: 50,
+        },
+        captionSegments: input.captionSegments || [],
+        videoId: input.videoId || null,
+        videoStoragePath: input.videoStoragePath || null,
+        videoName: input.videoName || null,
+        videoDurationMs: input.videoDurationMs || null,
+        videoWidth: input.videoWidth || null,
+        videoHeight: input.videoHeight || null,
+        videoFps: input.videoFps || null,
+        version: 1,
+        createdAt: now,
+        updatedAt: now,
+      };
+      return { success: true, project: upsertLocalProject(newRecord) };
+    }
     return { success: false, error: currentResult.error || 'Project not found.' };
   }
 

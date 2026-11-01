@@ -49,6 +49,9 @@ export const RightPanel: React.FC = () => {
 
   const style = currentProject.captionStyle;
   const currentFamily = style.fontFamily.split(',')[0]?.replace(/['"]/g, '').trim() || 'Montserrat';
+  const currentSecondaryFamily = style.secondaryFontFamily
+    ? style.secondaryFontFamily.split(',')[0]?.replace(/['"]/g, '').trim()
+    : '';
 
   const allAvailableFontNames = [
     ...new Set([...userFonts.map((f: FontDefinition) => f.family), ...FONT_CATALOG.map((f: FontDefinition) => f.family)]),
@@ -161,6 +164,61 @@ export const RightPanel: React.FC = () => {
                 <option value={900}>900 - Black</option>
               </select>
             </div>
+
+            {/* Secondary / Main Words Font (Dual-Font) */}
+            <div className="pt-2 border-t border-[#1c2331]">
+              <div className="flex items-center justify-between">
+                <label className="text-[10px] text-neutral-300 font-medium flex items-center gap-1.5">
+                  <Sparkles className="h-3 w-3 text-amber-400" />
+                  <span>Main Words Font (Dual-Font)</span>
+                </label>
+                {style.secondaryFontFamily && (
+                  <button
+                    type="button"
+                    onClick={() => updateStyle({ secondaryFontFamily: undefined, secondaryFontWeight: undefined })}
+                    className="text-[9px] text-neutral-400 hover:text-amber-300 underline"
+                  >
+                    Disable
+                  </button>
+                )}
+              </div>
+              <select
+                value={currentSecondaryFamily}
+                onChange={(e) =>
+                  updateStyle({
+                    secondaryFontFamily: e.target.value
+                      ? `${e.target.value}, 'Noto Sans Devanagari', 'Poppins', sans-serif`
+                      : undefined,
+                  })
+                }
+                className="mt-1 w-full rounded border border-[#262f40] bg-[#181d28] px-2 py-1.5 text-xs text-neutral-200 focus:outline-none focus:border-amber-400/60"
+              >
+                <option value="">(None - use base font)</option>
+                {allAvailableFontNames.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Secondary Font Weight if dual font enabled */}
+            {style.secondaryFontFamily && (
+              <div>
+                <label className="text-[10px] text-neutral-400 font-medium">Main Words Font Weight</label>
+                <select
+                  value={style.secondaryFontWeight || 900}
+                  onChange={(e) => updateStyle({ secondaryFontWeight: parseInt(e.target.value, 10) })}
+                  className="mt-1 w-full rounded border border-[#262f40] bg-[#181d28] px-2 py-1.5 text-xs text-neutral-200 focus:outline-none focus:border-amber-400/60"
+                >
+                  <option value={400}>400 - Regular</option>
+                  <option value={600}>600 - SemiBold</option>
+                  <option value={700}>700 - Bold</option>
+                  <option value={800}>800 - ExtraBold</option>
+                  <option value={900}>900 - Black / Heavy</option>
+                </select>
+              </div>
+            )}
 
             {/* Font Size Slider */}
             <div>
@@ -408,9 +466,31 @@ export const RightPanel: React.FC = () => {
 
           {/* Color & Outline Stroke Section */}
           <section className="rounded-lg border border-[#1f2633] bg-[#12161f] p-3 space-y-3">
-            <div className="flex items-center gap-1.5 text-[11px] font-semibold text-neutral-200">
-              <Palette className="h-3.5 w-3.5 text-amber-400" />
-              <span>Colors & Outline Stroke</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-neutral-200">
+                <Palette className="h-3.5 w-3.5 text-amber-400" />
+                <span>Colors & Outline Stroke</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const isStrokeActive = style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0;
+                  const nextActive = !isStrokeActive;
+                  updateStyle({
+                    hasStroke: nextActive,
+                    strokeWidth: nextActive ? (style.strokeWidth > 0 ? style.strokeWidth : 4) : 0,
+                  });
+                }}
+                className={cn(
+                  'rounded px-2 py-0.5 text-[10px] font-semibold border transition-colors',
+                  (style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0)
+                    ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400'
+                    : 'border-[#262f40] text-neutral-400 hover:text-neutral-300'
+                )}
+                title={(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) ? 'Turn outline stroke off' : 'Turn outline stroke on'}
+              >
+                {(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) ? 'ON' : 'OFF'}
+              </button>
             </div>
 
             {/* Base Color & Outline Color */}
@@ -431,13 +511,24 @@ export const RightPanel: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-[10px] text-neutral-400">Outline Stroke</label>
-                <div className="mt-1 flex items-center gap-1.5 rounded border border-[#262f40] bg-[#181d28] p-1">
+                <div className="flex items-center justify-between">
+                  <label className="text-[10px] text-neutral-400">Outline Stroke</label>
+                  {!(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) && (
+                    <span className="text-[9px] text-neutral-500 uppercase font-medium">Off</span>
+                  )}
+                </div>
+                <div
+                  className={cn(
+                    'mt-1 flex items-center gap-1.5 rounded border border-[#262f40] bg-[#181d28] p-1 transition-opacity',
+                    !(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) && 'opacity-40'
+                  )}
+                >
                   <input
                     type="color"
                     value={style.strokeColor}
+                    disabled={!(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0)}
                     onChange={(e) => updateStyle({ strokeColor: e.target.value })}
-                    className="h-5 w-5 rounded border-0 bg-transparent cursor-pointer"
+                    className="h-5 w-5 rounded border-0 bg-transparent cursor-pointer disabled:cursor-not-allowed"
                   />
                   <span className="font-mono text-[10px] text-neutral-300 uppercase">
                     {style.strokeColor}
@@ -449,16 +540,32 @@ export const RightPanel: React.FC = () => {
             {/* Stroke Width Slider */}
             <div>
               <div className="flex justify-between text-[10px] text-neutral-400">
-                <span>Stroke Width</span>
-                <span className="font-mono text-neutral-300">{style.strokeWidth}px</span>
+                <span>
+                  Stroke Width
+                  {!(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) && (
+                    <span className="ml-1 text-[9px] text-neutral-500 font-normal">(Disabled)</span>
+                  )}
+                </span>
+                <span className="font-mono text-neutral-300">
+                  {(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) ? `${style.strokeWidth}px` : '0px'}
+                </span>
               </div>
               <input
                 type="range"
                 min="0"
                 max="16"
-                value={style.strokeWidth}
-                onChange={(e) => updateStyle({ strokeWidth: parseInt(e.target.value, 10) })}
-                className="mt-1 w-full accent-emerald-500 cursor-pointer"
+                value={(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) ? style.strokeWidth : 0}
+                onChange={(e) => {
+                  const val = parseInt(e.target.value, 10);
+                  updateStyle({
+                    hasStroke: val > 0,
+                    strokeWidth: val,
+                  });
+                }}
+                className={cn(
+                  'mt-1 w-full accent-emerald-500 cursor-pointer transition-opacity',
+                  !(style.hasStroke !== undefined ? style.hasStroke : style.strokeWidth > 0) && 'opacity-40'
+                )}
               />
             </div>
           </section>

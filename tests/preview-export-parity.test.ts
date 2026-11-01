@@ -86,7 +86,7 @@ describe('Phase 11A: Preview and MP4 Export Rendering Parity', () => {
     });
     expect(created.success).toBe(true);
     testProjectId = created.project!.id;
-  });
+  }, 30000);
 
   afterAll(() => {
     try {

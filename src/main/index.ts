@@ -1,11 +1,13 @@
 import { app, BrowserWindow } from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
+import * as os from 'os';
 import * as dotenv from 'dotenv';
 import { logger } from './logger';
 import { setupSecurityPolicies } from './security';
 import { registerIpcHandlers } from './ipc';
 import { registerMediaPrivileges, registerLocalVideoProtocol } from './protocol';
+import { ensureFontsAvailable, KNOWN_GOOGLE_FONTS_TTF_URLS } from './export/fontCache';
 
 // Load environment variables early from .env.local and .env
 const envPaths = [
@@ -41,6 +43,12 @@ if (!gotTheLock) {
     // Register protocol handler for streaming local video
     registerLocalVideoProtocol();
     createWindow();
+
+    // Background pre-cache of all catalog TrueType fonts for instantaneous offline exports
+    const fontsDir = path.join(os.tmpdir(), 'autocaption_fonts');
+    ensureFontsAvailable(Object.keys(KNOWN_GOOGLE_FONTS_TTF_URLS), fontsDir).catch((err) => {
+      logger.warn('Main', 'Background font caching partial or skipped:', err);
+    });
   }).catch((err) => {
     logger.error('Main', 'Failed during app initialization', err);
   });

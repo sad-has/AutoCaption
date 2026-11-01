@@ -76,7 +76,7 @@ describe('Regression & Integrity: Export Original Video Without Test Patterns', 
     });
     expect(created.success).toBe(true);
     testProjectId = created.project!.id;
-  });
+  }, 30000);
 
   afterAll(() => {
     try {

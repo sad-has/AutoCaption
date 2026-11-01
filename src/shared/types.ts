@@ -47,6 +47,8 @@ export interface CaptionWord {
   endMs: number;
   highlighted?: boolean;
   confidence?: number;
+  fontFamily?: string;
+  fontWeight?: number;
 }
 
 export interface CaptionSegment {
@@ -81,6 +83,7 @@ export interface CaptionStyle {
   maxWidthPercent?: number; // 40 - 100%
 
   // Outline / Stroke
+  hasStroke?: boolean;
   strokeColor: string;
   strokeWidth: number;
 
@@ -110,6 +113,7 @@ export interface CaptionStyle {
   activeWordBgColor?: string;
   highlightStyle?: 'word' | 'sweep' | 'pill' | 'box';
   secondaryFontFamily?: string;
+  secondaryFontWeight?: number;
   decorativeElement?: 'none' | 'underline' | 'dot' | 'badge' | 'line';
 
   // Animation
@@ -248,6 +252,7 @@ export interface TranscriptionJobProgress {
   chunkCurrent?: number;
   error?: string | null;
   segmentCount?: number;
+  captionSegments?: CaptionSegment[];
   createdAt?: string;
   updatedAt?: string;
 }

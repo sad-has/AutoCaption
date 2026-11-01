@@ -11,6 +11,7 @@ import {
   Plus,
   Sparkles,
   Zap,
+  Star,
 } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
 import { formatTimecode, parseTimecodeToMs } from '../../utils/timecode';
@@ -260,15 +261,40 @@ export const CaptionListEditor: React.FC = () => {
                       {seg.words.map((w) => (
                         <div
                           key={w.id}
-                          className="flex items-center gap-1 rounded border border-[#202838] bg-[#0f131a] px-1.5 py-1 text-[10px]"
+                          className={cn(
+                            'flex items-center gap-1 rounded border px-1.5 py-1 text-[10px] transition-colors',
+                            w.highlighted
+                              ? 'border-amber-400/50 bg-amber-500/10'
+                              : 'border-[#202838] bg-[#0f131a]'
+                          )}
                         >
+                          <button
+                            type="button"
+                            onClick={() => updateWord(seg.id, w.id, { highlighted: !w.highlighted })}
+                            className={cn(
+                              'p-0.5 rounded transition-colors',
+                              w.highlighted
+                                ? 'text-amber-400 hover:text-amber-300'
+                                : 'text-neutral-500 hover:text-neutral-300'
+                            )}
+                            title={
+                              w.highlighted
+                                ? 'Main/Keyword (Dual-Font applied) - Click to unmark'
+                                : 'Mark as Main/Keyword for Dual-Font style'
+                            }
+                          >
+                            <Star className={cn('h-3 w-3', w.highlighted && 'fill-amber-400')} />
+                          </button>
                           <input
                             type="text"
                             value={w.text}
                             onChange={(e) =>
                               updateWord(seg.id, w.id, { text: e.target.value })
                             }
-                            className="w-16 rounded border border-transparent bg-transparent px-1 font-medium text-amber-200 focus:border-amber-400 focus:bg-black focus:outline-none"
+                            className={cn(
+                              'w-16 rounded border border-transparent bg-transparent px-1 font-medium focus:border-amber-400 focus:bg-black focus:outline-none',
+                              w.highlighted ? 'text-amber-300 font-bold' : 'text-amber-200'
+                            )}
                           />
                           <button
                             type="button"

@@ -331,7 +331,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ mediaAsset, onReplaceV
                 lineHeight: normalizedRendering.lineHeight,
                 textAlign: normalizedRendering.textAlign,
                 WebkitTextStroke:
-                  normalizedRendering.strokeWidthPx > 0
+                  normalizedRendering.hasStroke && normalizedRendering.strokeWidthPx > 0
                     ? `${normalizedRendering.strokeWidthPx}px ${normalizedRendering.strokeColor}`
                     : undefined,
                 textShadow: normalizedRendering.hasShadow
@@ -348,10 +348,17 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ mediaAsset, onReplaceV
                     ? normalizedRendering.activeWordColor
                     : (word.color || normalizedRendering.textColor);
 
+                  const wordFontFamily = word.fontFamily
+                    ? `${word.fontFamily}, 'Noto Sans Devanagari', 'Poppins', sans-serif`
+                    : `${normalizedRendering.fontFamily}, 'Noto Sans Devanagari', 'Poppins', sans-serif`;
+                  const wordFontWeight = word.fontWeight || normalizedRendering.fontWeight;
+
                   return (
                     <span
                       key={word.id}
                       style={{
+                        fontFamily: wordFontFamily,
+                        fontWeight: wordFontWeight,
                         color: wordColor,
                         opacity: word.opacity,
                         transform: word.transform,

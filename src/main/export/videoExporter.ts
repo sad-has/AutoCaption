@@ -8,6 +8,7 @@ import { logger } from '../logger';
 import { getFFmpegBinaryPath, inspectMediaFile } from '../media/prober';
 import { getProject } from '../projects/service';
 import { exportToAss, exportToSrt, exportToWebVtt } from '../../shared/export/subtitles';
+import { ensureFontsAvailable } from './fontCache';
 import {
   ExportVideoOptionsSchema,
   ExportSubtitlesSchema,
@@ -458,6 +459,24 @@ export class VideoExportManager {
       if (!fs.existsSync(fontsDir)) {
         fs.mkdirSync(fontsDir, { recursive: true });
       }
+
+      // Collect all fonts required by project style, secondary font, and segment overrides
+      const fontsToEnsure: string[] = [
+        effectiveStyle.fontFamily,
+        effectiveStyle.secondaryFontFamily || '',
+      ];
+      for (const seg of project.captionSegments) {
+        if (seg.styleOverrides?.fontFamily) {
+          fontsToEnsure.push(seg.styleOverrides.fontFamily);
+        }
+      }
+
+      try {
+        await ensureFontsAvailable(fontsToEnsure, fontsDir);
+      } catch (err) {
+        logger.warn('VideoExportManager', `Font caching skipped or partial: ${err}`);
+      }
+
       const escapedFontsDir = escapeFFmpegFilterPath(fontsDir);
       vfParts.push(`ass='${escapedAss}':fontsdir='${escapedFontsDir}'`);
     }

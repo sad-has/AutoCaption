@@ -391,6 +391,11 @@ export const TemplateBrowser: React.FC<TemplateBrowserProps> = ({ onCustomizeCli
                         MY
                       </span>
                     )}
+                    {Boolean(template.style.secondaryFontFamily) && (
+                      <span className="rounded bg-indigo-500/20 px-1.5 py-0.2 text-[8px] font-semibold text-indigo-300 border border-indigo-500/35">
+                        DUAL-FONT
+                      </span>
+                    )}
                   </div>
 
                   <div className="flex items-center gap-1 shrink-0">
@@ -454,11 +459,15 @@ export const TemplateBrowser: React.FC<TemplateBrowserProps> = ({ onCustomizeCli
                     }}
                   >
                     <span>{template.name}</span>
-                    {template.style.hasWordEmphasis && (
+                    {(template.style.hasWordEmphasis || template.style.secondaryFontFamily) && (
                       <span
-                        className="ml-1 font-bold inline-block"
+                        className="ml-1.5 font-bold inline-block"
                         style={{
-                          color: template.style.activeWordColor,
+                          fontFamily: template.style.secondaryFontFamily
+                            ? `${template.style.secondaryFontFamily}, ${template.style.fontFamily}, 'Noto Sans Devanagari', 'Poppins', sans-serif`
+                            : undefined,
+                          fontWeight: template.style.secondaryFontWeight || 900,
+                          color: template.style.activeWordColor || '#CCFF00',
                           backgroundColor:
                             template.style.highlightStyle === 'pill'
                               ? template.style.activeWordBgColor || 'rgba(52, 211, 153, 0.22)'
@@ -467,7 +476,7 @@ export const TemplateBrowser: React.FC<TemplateBrowserProps> = ({ onCustomizeCli
                           borderRadius: template.style.highlightStyle === 'pill' ? '9999px' : undefined,
                         }}
                       >
-                        Sample
+                        {template.style.secondaryFontFamily ? 'VIRAL' : 'Sample'}
                       </span>
                     )}
                   </span>
