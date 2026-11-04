@@ -1,0 +1,3115 @@
+{
+ "url": "http://localhost:5173/landing.html",
+ "at": "2026-11-04T17:18:22.117Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    0.2,
+    0.63,
+    0.42,
+    0.43,
+    0.28,
+    0.36,
+    0.69,
+    0.73
+   ],
+   "motion": {
+    "elements": 23,
+    "css": 3,
+    "transitions": 20,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 6504,
+     "screens": 7.2,
+     "words": 931,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 54,
+     "sections": 9,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "🪟",
+      "🍎",
+      "🐧"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Cinematic Captionsthat keepviewerswatching.",
+     "words": 3,
+     "chars": 43,
+     "lines": 2,
+     "size": 72,
+     "vw": 5,
+     "font": "-apple-system",
+     "weight": 800,
+     "tracking": -0.025,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.62,
+     "top": 182,
+     "gradientText": true,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Cinematic Captionsthat keepviewerswatching.",
+     "words": 3,
+     "lines": 2,
+     "size": 72,
+     "font": "-apple-system"
+    },
+    "headings": [
+     {
+      "text": "Cinematic Captionsthat keepviewerswatching.",
+      "words": 3,
+      "chars": 43,
+      "lines": 2,
+      "size": 72,
+      "vw": 5,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.62,
+      "top": 182,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Everything you need to make captions impossible to skip",
+      "words": 9,
+      "chars": 55,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 1142,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Templates tuned for maximum retention",
+      "words": 5,
+      "chars": 37,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 2082,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "From import to export in four steps",
+      "words": 7,
+      "chars": 35,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 2783,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "108ms",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.18,
+      "top": 3310,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4K",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.18,
+      "top": 3310,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.18,
+      "top": 3310,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.18,
+      "top": 3310,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "One desktop license, forever yours",
+      "words": 5,
+      "chars": 34,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 3625,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$49",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.06,
+      "top": 3896,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Frequently asked questions",
+      "words": 3,
+      "chars": 26,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.51,
+      "top": 4557,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Download the desktop app and start captioning offline",
+      "words": 8,
+      "chars": 53,
+      "lines": 2,
+      "size": 48,
+      "vw": 3.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 5504,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "🪟",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.03,
+      "top": 5913,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "🍎",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.03,
+      "top": 5913,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "🐧",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.03,
+      "top": 5913,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 15,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 15,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "-apple-system",
+       "share": 0.96,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.04,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      14,
+      16,
+      18,
+      20,
+      30,
+      36,
+      48,
+      72
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "-apple-system",
+      "size": 14,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.1
+     },
+     "measureChars": 67,
+     "max": {
+      "size": 72,
+      "vw": 5,
+      "font": "-apple-system",
+      "text": "Cinematic Captions"
+     },
+     "monoShare": 0.04,
+     "monoProseShare": 0.04,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [
+      "Stroke",
+      "3px Solid Black",
+      "Shadow",
+      "0px 4px 12px",
+      "Karaoke speed",
+      "Frame-Sync"
+     ],
+     "microLabels": 6,
+     "microLabelShare": 0.017,
+     "microSamples": [
+      "Works with the tools you already use",
+      "High Retention",
+      "High Energy",
+      "Educational",
+      "Cinematic",
+      "Local-First Edition"
+     ],
+     "upperShare": 0.03,
+     "centerShare": 0.29,
+     "smallText": 43
+    },
+    "eyebrows": [
+     {
+      "text": "v0.1 — Local-first desktop editor",
+      "above": "Cinematic Captionsthat keepviewerswatchi",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 128
+     },
+     {
+      "text": "Built for retention",
+      "above": "Everything you need to make captions imp",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 1100
+     },
+     {
+      "text": "Style Library",
+      "above": "Templates tuned for maximum retention",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 2039
+     },
+     {
+      "text": "Simple workflow",
+      "above": "From import to export in four steps",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 2741
+     },
+     {
+      "text": "Simple Pricing",
+      "above": "One desktop license, forever yours",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 3583
+     },
+     {
+      "text": "Questions",
+      "above": "Frequently asked questions",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 4515
+     },
+     {
+      "text": "Ready to caption?",
+      "above": "Download the desktop app and start capti",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 5461
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 12,
+      "top": 2930
+     },
+     {
+      "text": "02",
+      "size": 12,
+      "top": 2930
+     },
+     {
+      "text": "03",
+      "size": 12,
+      "top": 2930
+     },
+     {
+      "text": "04",
+      "size": 12,
+      "top": 2930
+     }
+    ],
+    "color": {
+     "bodyBg": "#0b0d11",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.21,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b0d11",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.21,
+        "l": 0.05
+       }
+      },
+      {
+       "color": "#0d1017",
+       "top": 6126,
+       "hsl": {
+        "h": 222,
+        "s": 0.28,
+        "l": 0.07
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#a1a1a1",
+       "share": 0.55
+      },
+      {
+       "color": "#d4d4d4",
+       "share": 0.12
+      },
+      {
+       "color": "#f5f5f5",
+       "share": 0.09
+      },
+      {
+       "color": "#737373",
+       "share": 0.06
+      },
+      {
+       "color": "#fafafa",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#009966",
+      "hsl": {
+       "h": 160,
+       "s": 1,
+       "l": 0.3
+      },
+      "fg": "#0a0a0a"
+     },
+     "lowContrast": [
+      {
+       "text": "Works with the tools you already use",
+       "ratio": 2.4,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#525252",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "DaVinci Resolve",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "Adobe Premiere Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "Final Cut Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "CapCut Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "OBS Studio",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 3,
+     "radius": 8,
+     "height": 30,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Download",
+      "Download for Windows",
+      "See how it works"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.reveal.mx-auto → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 6,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.769 0.0640531 0.176752 / 0.2) 0%, oklab(0.696 -0.162114 0.0511766 / 0",
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.637 0.214213 0.1014 / 0.2) 0%, oklab(0.769 0.0640531 0.176752 / 0.2) ",
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.685 -0.0912435 -0.142252 / 0.2) 0%, oklab(0.585 0.0288678 -0.231205 /",
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.769 0.0640531 0.176752 / 0.2) 0%, oklab(0.681 0.0396466 0.157074 / 0."
+     ],
+     "gradientText": 4,
+     "hairlines": 12,
+     "hairlineSamples": [
+      "section.border-y.border-[#1a1f29] 1440px",
+      "div.flex.justify-between 240px",
+      "div.flex.justify-between 240px",
+      "div.flex.justify-between 240px",
+      "div.flex.justify-between 240px"
+     ],
+     "outlinedBoxes": 31,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 33,
+     "boxRadius": 12,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 8,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 1409
+      },
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 2895
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3278
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 5890
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 6504,
+    "margins": {
+     "left": 121,
+     "right": 126
+    },
+    "sections": [
+     {
+      "sel": "section#top.relative.mx-auto",
+      "tag": "section",
+      "top": 0,
+      "height": 900,
+      "words": 61,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Cinematic Captions",
+       "size": 72,
+       "tag": "h1"
+      },
+      "left": 328,
+      "right": 328,
+      "textLeft": 328,
+      "textRight": 328,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#features.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 1004,
+      "height": 940,
+      "words": 199,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Everything you need to make captions",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 110,
+      "right": 110,
+      "textLeft": 110,
+      "textRight": 110,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#templates.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 1943,
+      "height": 700,
+      "words": 195,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Templates tuned for maximum retention",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 125,
+      "right": 125,
+      "textLeft": 125,
+      "textRight": 125,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 2644,
+      "height": 553,
+      "words": 93,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "From import to export in four steps",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 125,
+      "right": 132,
+      "textLeft": 125,
+      "textRight": 132,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 3197,
+      "height": 290,
+      "words": 13,
+      "media": 0,
+      "middle": 197,
+      "heading": {
+       "text": "108ms",
+       "size": 36,
+       "tag": "div"
+      },
+      "left": 188,
+      "right": 189,
+      "textLeft": 188,
+      "textRight": 189,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#pricing.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 3487,
+      "height": 931,
+      "words": 85,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "One desktop license, forever yours",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 351,
+      "right": 351,
+      "textLeft": 351,
+      "textRight": 351,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cta.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 5300,
+      "height": 826,
+      "words": 51,
+      "media": 0,
+      "middle": 91,
+      "heading": {
+       "text": "Download the desktop app",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 265,
+      "right": 266,
+      "textLeft": 265,
+      "textRight": 266,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#1f2633]",
+      "tag": "footer",
+      "top": 6126,
+      "height": 378,
+      "words": 49,
+      "media": 0,
+      "middle": 187,
+      "heading": {
+       "text": "Product",
+       "size": 12,
+       "tag": "h4"
+      },
+      "left": 100,
+      "right": 100,
+      "textLeft": 100,
+      "textRight": 100,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 620,
+      "height": 304
+     }
+    ],
+    "h1s": [
+     {
+      "text": "Cinematic Captionsthat keepviewerswatching.",
+      "size": 72,
+      "top": 182,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 121,
+      "n": 7
+     },
+     {
+      "x": 435,
+      "n": 7
+     },
+     {
+      "x": 749,
+      "n": 7
+     },
+     {
+      "x": 1063,
+      "n": 7
+     }
+    ],
+    "leftBlocks": 28,
+    "bodySize": 14,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.27,
+    "voidBox": {
+     "x": 0,
+     "y": 660,
+     "w": 1440,
+     "h": 240
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    0.35,
+    0.69,
+    0.63,
+    0.56,
+    0.43,
+    0.6,
+    0.74,
+    0.83
+   ],
+   "motion": {
+    "elements": 23,
+    "css": 3,
+    "transitions": 20,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 7712,
+     "screens": 7.5,
+     "words": 911,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 54,
+     "sections": 9,
+     "horizontalOverflow": 306,
+     "overflowCulprits": [
+      "span.whitespace-nowrap.text-sm (+95px)",
+      "span.whitespace-nowrap.text-sm (+199px)",
+      "span.whitespace-nowrap.text-sm (+300px)"
+     ],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "🪟",
+      "🍎",
+      "🐧"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Cinematic Captionsthat keepviewerswatching.",
+     "words": 3,
+     "chars": 43,
+     "lines": 2,
+     "size": 60,
+     "vw": 7.8,
+     "font": "-apple-system",
+     "weight": 800,
+     "tracking": -0.025,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.95,
+     "top": 182,
+     "gradientText": true,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Cinematic Captionsthat keepviewerswatching.",
+     "words": 3,
+     "lines": 2,
+     "size": 60,
+     "font": "-apple-system"
+    },
+    "headings": [
+     {
+      "text": "Cinematic Captionsthat keepviewerswatching.",
+      "words": 3,
+      "chars": 43,
+      "lines": 2,
+      "size": 60,
+      "vw": 7.8,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 182,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Everything you need to make captions impossible to skip",
+      "words": 9,
+      "chars": 55,
+      "lines": 2,
+      "size": 48,
+      "vw": 6.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1266,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Templates tuned for maximum retention",
+      "words": 5,
+      "chars": 37,
+      "lines": 2,
+      "size": 48,
+      "vw": 6.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2617,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "From import to export in four steps",
+      "words": 7,
+      "chars": 35,
+      "lines": 2,
+      "size": 48,
+      "vw": 6.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3710,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "108ms",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.17,
+      "top": 4492,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4K",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.17,
+      "top": 4492,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.17,
+      "top": 4492,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.17,
+      "top": 4492,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "One desktop license, forever yours",
+      "words": 5,
+      "chars": 34,
+      "lines": 2,
+      "size": 48,
+      "vw": 6.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 4828,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$49",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.11,
+      "top": 5147,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Frequently asked questions",
+      "words": 3,
+      "chars": 26,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 5808,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Download the desktop app and start captioning offline",
+      "words": 8,
+      "chars": 53,
+      "lines": 2,
+      "size": 48,
+      "vw": 6.3,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 6754,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "🪟",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.05,
+      "top": 7163,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "🍎",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.05,
+      "top": 7163,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "🐧",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 7163,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 15,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 15,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "-apple-system",
+       "share": 0.96,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.04,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      14,
+      16,
+      18,
+      20,
+      30,
+      36,
+      48,
+      60
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "-apple-system",
+      "size": 14,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.1
+     },
+     "measureChars": 67,
+     "max": {
+      "size": 60,
+      "vw": 7.8,
+      "font": "-apple-system",
+      "text": "Cinematic Captions"
+     },
+     "monoShare": 0.04,
+     "monoProseShare": 0.04,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [
+      "Stroke",
+      "3px Solid Black",
+      "Shadow",
+      "0px 4px 12px",
+      "Karaoke speed",
+      "Frame-Sync"
+     ],
+     "microLabels": 6,
+     "microLabelShare": 0.017,
+     "microSamples": [
+      "Works with the tools you already use",
+      "High Retention",
+      "High Energy",
+      "Educational",
+      "Cinematic",
+      "Local-First Edition"
+     ],
+     "upperShare": 0.03,
+     "centerShare": 0.3,
+     "smallText": 43
+    },
+    "eyebrows": [
+     {
+      "text": "v0.1 — Local-first desktop editor",
+      "above": "Cinematic Captionsthat keepviewerswatchi",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 128
+     },
+     {
+      "text": "Built for retention",
+      "above": "Everything you need to make captions imp",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 1224
+     },
+     {
+      "text": "Style Library",
+      "above": "Templates tuned for maximum retention",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 2574
+     },
+     {
+      "text": "Simple workflow",
+      "above": "From import to export in four steps",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 3668
+     },
+     {
+      "text": "Simple Pricing",
+      "above": "One desktop license, forever yours",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 4785
+     },
+     {
+      "text": "Questions",
+      "above": "Frequently asked questions",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 5766
+     },
+     {
+      "text": "Ready to caption?",
+      "above": "Download the desktop app and start capti",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 6712
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 12,
+      "top": 3905
+     },
+     {
+      "text": "02",
+      "size": 12,
+      "top": 3905
+     },
+     {
+      "text": "03",
+      "size": 12,
+      "top": 4112
+     },
+     {
+      "text": "04",
+      "size": 12,
+      "top": 4112
+     }
+    ],
+    "color": {
+     "bodyBg": "#0b0d11",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.21,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b0d11",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.21,
+        "l": 0.05
+       }
+      },
+      {
+       "color": "#11141a",
+       "top": 5070,
+       "hsl": {
+        "h": 220,
+        "s": 0.21,
+        "l": 0.08
+       }
+      },
+      {
+       "color": "#0d1017",
+       "top": 7377,
+       "hsl": {
+        "h": 222,
+        "s": 0.28,
+        "l": 0.07
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#a1a1a1",
+       "share": 0.54
+      },
+      {
+       "color": "#d4d4d4",
+       "share": 0.12
+      },
+      {
+       "color": "#f5f5f5",
+       "share": 0.09
+      },
+      {
+       "color": "#737373",
+       "share": 0.06
+      },
+      {
+       "color": "#fafafa",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#009966",
+      "hsl": {
+       "h": 160,
+       "s": 1,
+       "l": 0.3
+      },
+      "fg": "#0a0a0a"
+     },
+     "lowContrast": [
+      {
+       "text": "Works with the tools you already use",
+       "ratio": 2.4,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#525252",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "DaVinci Resolve",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "Adobe Premiere Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "Final Cut Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "CapCut Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "OBS Studio",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 3,
+     "radius": 8,
+     "height": 30,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Download",
+      "Download for Windows",
+      "See how it works"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.reveal.mx-auto → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 6,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.769 0.0640531 0.176752 / 0.2) 0%, oklab(0.696 -0.162114 0.0511766 / 0",
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.637 0.214213 0.1014 / 0.2) 0%, oklab(0.769 0.0640531 0.176752 / 0.2) ",
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.685 -0.0912435 -0.142252 / 0.2) 0%, oklab(0.585 0.0288678 -0.231205 /",
+      "div.relative.flex → linear-gradient(to right bottom, oklab(0.769 0.0640531 0.176752 / 0.2) 0%, oklab(0.681 0.0396466 0.157074 / 0."
+     ],
+     "gradientText": 4,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "section.border-y.border-[#1a1f29] 768px",
+      "div.flex.justify-between 300px",
+      "div.flex.justify-between 300px",
+      "div.flex.justify-between 300px",
+      "div.flex.justify-between 300px"
+     ],
+     "outlinedBoxes": 31,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 33,
+     "boxRadius": 12,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 8,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 1581
+      },
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 3870
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 4460
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 7140
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 7712,
+    "margins": {
+     "left": 21,
+     "right": 21
+    },
+    "sections": [
+     {
+      "sel": "section#top.relative.mx-auto",
+      "tag": "section",
+      "top": 0,
+      "height": 1024,
+      "words": 61,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Cinematic Captions",
+       "size": 60,
+       "tag": "h1"
+      },
+      "left": 57,
+      "right": 57,
+      "textLeft": 57,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#features.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 1128,
+      "height": 1351,
+      "words": 199,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Everything you need to make captions",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 41,
+      "right": 47,
+      "textLeft": 41,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#templates.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 2478,
+      "height": 1092,
+      "words": 195,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Templates tuned for maximum retention",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 45,
+      "right": 45,
+      "textLeft": 45,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 3571,
+      "height": 809,
+      "words": 93,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "From import to export in four steps",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 45,
+      "right": 50,
+      "textLeft": 45,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 4379,
+      "height": 310,
+      "words": 13,
+      "media": 0,
+      "middle": 101,
+      "heading": {
+       "text": "108ms",
+       "size": 36,
+       "tag": "div"
+      },
+      "left": 58,
+      "right": 45,
+      "textLeft": 58,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#pricing.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 4689,
+      "height": 979,
+      "words": 85,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "One desktop license, forever yours",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.mx-auto.max-w-3xl",
+      "tag": "section",
+      "top": 5669,
+      "height": 882,
+      "words": 177,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Frequently asked questions",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 21,
+      "right": 21,
+      "textLeft": 37,
+      "textRight": 39,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cta.mx-auto.max-w-7xl",
+      "tag": "section",
+      "top": 6551,
+      "height": 826,
+      "words": 51,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Download the desktop app",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 91,
+      "right": 91,
+      "textLeft": 91,
+      "textRight": 91,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#1f2633]",
+      "tag": "footer",
+      "top": 7377,
+      "height": 336,
+      "words": 29,
+      "media": 0,
+      "middle": 194,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 596,
+      "height": 452
+     }
+    ],
+    "h1s": [
+     {
+      "text": "Cinematic Captionsthat keepviewerswatching.",
+      "size": 60,
+      "top": 182,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 41,
+      "n": 14
+     },
+     {
+      "x": 413,
+      "n": 14
+     }
+    ],
+    "leftBlocks": 28,
+    "bodySize": 14,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.27,
+    0.24,
+    0.27,
+    0.24,
+    0.19,
+    0.21,
+    0.17,
+    0.19,
+    0.22,
+    0.2,
+    0.2,
+    0.2
+   ],
+   "motion": {
+    "elements": 23,
+    "css": 3,
+    "transitions": 20,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 924,
+     "h": 2000
+    },
+    "page": {
+     "height": 10364,
+     "screens": 5.2,
+     "words": 902,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 54,
+     "sections": 9,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "🪟",
+      "🍎",
+      "🐧"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Cinematic Captionsthat keepviewerswatching.",
+     "words": 3,
+     "chars": 43,
+     "lines": 3,
+     "size": 48,
+     "vw": 5.2,
+     "font": "-apple-system",
+     "weight": 800,
+     "tracking": -0.025,
+     "leading": 1.05,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "left",
+     "widthRatio": 0.54,
+     "top": 166,
+     "gradientText": true,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Cinematic Captionsthat keepviewerswatching.",
+     "words": 3,
+     "lines": 3,
+     "size": 48,
+     "font": "-apple-system"
+    },
+    "headings": [
+     {
+      "text": "Cinematic Captionsthat keepviewerswatching.",
+      "words": 3,
+      "chars": 43,
+      "lines": 3,
+      "size": 48,
+      "vw": 5.2,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.05,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 166,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Everything you need to make captions impossible to skip",
+      "words": 9,
+      "chars": 55,
+      "lines": 3,
+      "size": 36,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 1086,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Templates tuned for maximum retention",
+      "words": 5,
+      "chars": 37,
+      "lines": 2,
+      "size": 36,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 3278,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "From import to export in four steps",
+      "words": 7,
+      "chars": 35,
+      "lines": 2,
+      "size": 36,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 5068,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "108ms",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.2,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 6250,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4K",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.2,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 6250,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.2,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 6395,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.2,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 6395,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "One desktop license, forever yours",
+      "words": 5,
+      "chars": 34,
+      "lines": 2,
+      "size": 36,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 6727,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "$49",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 5.2,
+      "font": "-apple-system",
+      "weight": 800,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.09,
+      "top": 7055,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Frequently asked questions",
+      "words": 3,
+      "chars": 26,
+      "lines": 2,
+      "size": 36,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 7796,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Download the desktop app and start captioning offline",
+      "words": 8,
+      "chars": 53,
+      "lines": 5,
+      "size": 36,
+      "vw": 3.9,
+      "font": "-apple-system",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 8824,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "🪟",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.2,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.04,
+      "top": 9411,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "🍎",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.2,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.04,
+      "top": 9567,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "🐧",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.2,
+      "font": "-apple-system",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.04,
+      "top": 9723,
+      "tag": "span",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 15,
+     "maxLines": 5,
+     "over2Lines": 3,
+     "statements": 0,
+     "centered": 15,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "-apple-system",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      11,
+      12,
+      14,
+      16,
+      18,
+      20,
+      30,
+      36,
+      48
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "-apple-system",
+      "size": 14,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.1
+     },
+     "measureChars": 39,
+     "max": {
+      "size": 48,
+      "vw": 5.2,
+      "font": "-apple-system",
+      "text": "Cinematic Captions"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0.05,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [
+      "Stroke",
+      "3px Solid Black",
+      "Shadow",
+      "0px 4px 12px",
+      "Karaoke speed",
+      "Frame-Sync"
+     ],
+     "microLabels": 6,
+     "microLabelShare": 0.018,
+     "microSamples": [
+      "Works with the tools you already use",
+      "High Retention",
+      "High Energy",
+      "Educational",
+      "Cinematic",
+      "Local-First Edition"
+     ],
+     "upperShare": 0.03,
+     "centerShare": 0.3,
+     "smallText": 43
+    },
+    "eyebrows": [
+     {
+      "text": "v0.1 — Local-first desktop editor",
+      "above": "Cinematic Captionsthat keepviewerswatchi",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 112
+     },
+     {
+      "text": "Built for retention",
+      "above": "Everything you need to make captions imp",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 1044
+     },
+     {
+      "text": "Style Library",
+      "above": "Templates tuned for maximum retention",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 3235
+     },
+     {
+      "text": "Simple workflow",
+      "above": "From import to export in four steps",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 5026
+     },
+     {
+      "text": "Simple Pricing",
+      "above": "One desktop license, forever yours",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 6684
+     },
+     {
+      "text": "Questions",
+      "above": "Frequently asked questions",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 7754
+     },
+     {
+      "text": "Ready to caption?",
+      "above": "Download the desktop app and start capti",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 8782
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 12,
+      "top": 5247
+     },
+     {
+      "text": "02",
+      "size": 12,
+      "top": 5455
+     },
+     {
+      "text": "03",
+      "size": 12,
+      "top": 5662
+     },
+     {
+      "text": "04",
+      "size": 12,
+      "top": 5892
+     }
+    ],
+    "color": {
+     "bodyBg": "#0b0d11",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.21,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b0d11",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.21,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#a1a1a1",
+       "share": 0.54
+      },
+      {
+       "color": "#d4d4d4",
+       "share": 0.12
+      },
+      {
+       "color": "#f5f5f5",
+       "share": 0.1
+      },
+      {
+       "color": "#737373",
+       "share": 0.06
+      },
+      {
+       "color": "#fafafa",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#009966",
+      "hsl": {
+       "h": 160,
+       "s": 1,
+       "l": 0.3
+      },
+      "fg": "#0a0a0a"
+     },
+     "lowContrast": [
+      {
+       "text": "Works with the tools you already use",
+       "ratio": 2.4,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#525252",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "DaVinci Resolve",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "Adobe Premiere Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "Final Cut Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "CapCut Pro",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      },
+      {
+       "text": "OBS Studio",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#737373",
+       "bg": "#0d1017"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 2,
+     "radius": 8,
+     "height": 30,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Download for Windows",
+      "See how it works"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.reveal.mx-auto → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 2,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.relative.rounded-2xl → linear-gradient(to right bottom, oklab(0.696 -0.162114 0.0511766 / 0.1) 0%, rgb(17, 20, 26) 50%, oklab(0.769 0",
+      "div.grid-bg.absolute → linear-gradient(rgba(16, 185, 129, 0.04) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(90deg, rgba(16, 185, 129,"
+     ],
+     "gradientText": 4,
+     "hairlines": 11,
+     "hairlineSamples": [
+      "section.border-y.border-[#1a1f29] 390px",
+      "div.flex.justify-between 298px",
+      "div.flex.justify-between 298px",
+      "div.flex.justify-between 298px",
+      "div.flex.justify-between 298px"
+     ],
+     "outlinedBoxes": 32,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 33,
+     "boxRadius": 12,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 8,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 1425
+      },
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 5212
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 6218
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 9388
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "layout": {
+    "viewport": {
+     "w": 924,
+     "h": 2000
+    },
+    "pageH": 10364,
+    "margins": {
+     "left": 21,
+     "right": 402
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Cinematic Captionsthat keepviewerswatching.",
+      "size": 48,
+      "top": 166,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 41,
+      "n": 28
+     }
+    ],
+    "leftBlocks": 28,
+    "bodySize": 14,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "7 eyebrow/kicker label(s) above headings: \"v0.1 — Local-first desktop editor\" (pill) above \"Cinematic Captionsthat keepviewerswatchi\"; \"Built for retention\" (pill) above \"Everything you need to make captions imp\"; \"Style Library\" (pill) above \"Templates tuned for maximum retention\"; \"Simple workflow\" (pill) above \"From import to export in four steps\"; \"Simple Pricing\" (pill) above \"One desktop license, forever yours\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "mono",
+   "width": 1440,
+   "message": "Monospace type outside code: ui-monospace — e.g. \"Stroke\", \"3px Solid Black\", \"Shadow\", \"0px 4px 12px\"",
+   "fix": "Set it in the text face. Monospace is for literal code inside <pre>/<code> only.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"01\", \"02\", \"03\", \"04\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "6 tiny uppercase letter-spaced labels (e.g. \"Works with the tools you already use\", \"High Retention\", \"High Energy\", \"Educational\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "emoji",
+   "width": 1440,
+   "message": "Emoji in the page: 🪟 🍎 🐧",
+   "fix": "Remove. Use words or real imagery.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "6 gradient fill(s): div.relative.flex → linear-gradient(to right bottom, oklab(0.769 0.0640531 0.176752 / 0.2) 0%, oklab(0.696 -0.162114 0.0511766 / 0 | div.relative.flex → linear-gradient(to right bottom, oklab(0.637 0.214213 0.1014 / 0.2) 0%, oklab(0.769 0.0640531 0.176752 / 0.2)  | div.relative.flex → linear-gradient(to right bottom, oklab(0.685 -0.0912435 -0.142252 / 0.2) 0%, oklab(0.585 0.0288678 -0.231205 /",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient-text",
+   "width": 1440,
+   "message": "4 gradient-filled text element(s).",
+   "fix": "Solid colour text.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "1 box-shadow(s) on elements at rest: div.reveal.mx-auto → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "12 thin rule(s)/divider line(s): section.border-y.border-[#1a1f29] 1440px | div.flex.justify-between 240px | div.flex.justify-between 240px | div.flex.justify-between 240px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "31 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "icon-cards",
+   "width": 1440,
+   "message": "2 row(s) of identical cards each topped with a small icon (8, 4 cards).",
+   "fix": "Replace with one composed section from the direction: a narrative split, a list set in large type, or real imagery per item.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Unreadable text: \"Works with the tools you already use\" 2.4:1 (#525252 on #0d1017)",
+   "fix": "Raise contrast to at least 4.5:1 for text, 3:1 for large display.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "12 different font sizes (9, 10, 11, 12, 14, 16, 18, 20, 30, 36, 48, 72).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 14px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "43 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "dev-server",
+   "width": 1440,
+   "message": "This page is served by a development server (Vite, webpack or Next in dev mode).",
+   "fix": "Run the last gate on the production build too (vite build && vite preview, next build && next start, or the built index.html): minifiers and bundlers change the CSS a visitor receives.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "overflow",
+   "width": 768,
+   "message": "Page scrolls sideways by 306px at 768px. Widest offenders: span.whitespace-nowrap.text-sm (+95px), span.whitespace-nowrap.text-sm (+199px), span.whitespace-nowrap.text-sm (+300px).",
+   "fix": "Constrain the element that is wider than the viewport (max-width: 100%, or overflow: clip on its section)."
+  },
+  {
+   "level": "WARN",
+   "id": "blank-gap",
+   "width": 768,
+   "message": "A 452px stretch at 596px holds nothing.",
+   "fix": "Check that it is a deliberate rest (once per page at most); otherwise close it to the normal section gap."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "3 headline(s) wrap past two lines at 390px: \"Cinematic Captionsthat keepviewerswatching.\" → 3 lines (3 words, 48px); \"Everything you need to make captions impossible \" → 3 lines (9 words, 36px); \"Download the desktop app and start captioning of\" → 5 lines (8 words, 36px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "off-centre",
+   "width": 390,
+   "message": "The page sits off-centre: its content comes to 21px from the left edge but only to 402px from the right, at 390px.",
+   "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "F:\\AutoCaption\\.taste-skill\\before\\desktop-fold.jpg",
+   "pages": [
+    "F:\\AutoCaption\\.taste-skill\\before\\desktop-page-01.jpg",
+    "F:\\AutoCaption\\.taste-skill\\before\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "F:\\AutoCaption\\.taste-skill\\before\\tablet-fold.jpg",
+   "pages": [
+    "F:\\AutoCaption\\.taste-skill\\before\\tablet-page-01.jpg",
+    "F:\\AutoCaption\\.taste-skill\\before\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "F:\\AutoCaption\\.taste-skill\\before\\mobile-fold.jpg",
+   "pages": [
+    "F:\\AutoCaption\\.taste-skill\\before\\mobile-page-01.jpg",
+    "F:\\AutoCaption\\.taste-skill\\before\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

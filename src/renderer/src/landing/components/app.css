@@ -1,0 +1,158 @@
+/* AutoCaption Studio — product interface fragments (app-screen rules).
+   These are real pieces of the product, built in HTML, marked data-ui.
+   Quiet borders, small labels, repeated panels are normal here;
+   gradients, glows, icons in tinted squares are not. */
+
+[data-ui] {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #11141a;
+  color: #f3f4f6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The one radius, used everywhere on the product. */
+[data-ui] .r { border-radius: 2px; }
+
+/* A panel is defined by a fill one tone step from the page, never by a line. */
+[data-ui] .panel {
+  background: #161a23;
+}
+[data-ui] .panel-2 {
+  background: #1b202c;
+}
+[data-ui] .panel-3 {
+  background: #202633;
+}
+
+/* A label: small, sentence case, no tracking, no uppercase. */
+[data-ui] .label {
+  font-size: 11px;
+  color: #8b93a2;
+}
+
+/* A control: flat, one fill, square corners. */
+[data-ui] .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #f3f4f6;
+  background: #161a23;
+  border: 1px solid #252b38;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+[data-ui] .btn:hover { background: #1f2633; }
+[data-ui] .btn:active { background: #2a3242; }
+[data-ui] .btn.primary {
+  background: #10b981;
+  color: #0b0d11;
+  border-color: #10b981;
+  font-weight: 600;
+}
+[data-ui] .btn.primary:hover { background: #0da173; }
+
+/* A field: one fill, a visible placeholder, no chrome. */
+[data-ui] .field {
+  width: 100%;
+  background: #0b0d11;
+  border: 1px solid #252b38;
+  color: #f3f4f6;
+  padding: 7px 9px;
+  font-size: 12px;
+  outline: none;
+}
+[data-ui] .field:focus { border-color: #10b981; }
+
+/* A row of a list: a name, a value, a status. No lines. */
+[data-ui] .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  gap: 12px;
+}
+[data-ui] .row + .row { border-top: 1px solid #1a1f29; }
+
+/* A status dot: the accent on the action, nothing else. */
+[data-ui] .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+}
+[data-ui] .dot.off { background: #3a4150; }
+
+/* Tabular figures for numbers that align. */
+[data-ui] .tab {
+  font-variant-numeric: tabular-nums;
+}
+
+/* A switch, built in em so it matches its type. */
+[data-ui] .switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+[data-ui] .switch input { position: absolute; opacity: 0; }
+[data-ui] .switch .track {
+  width: 2em;
+  height: 1em;
+  border-radius: 9999px;
+  background: #252b38;
+  transition: background 150ms ease;
+}
+[data-ui] .switch .thumb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background: #8b93a2;
+  transition: transform 150ms ease;
+}
+[data-ui] .switch input:checked + .track { background: #10b981; }
+[data-ui] .switch input:checked + .track + .thumb { transform: translateX(1em); background: #0b0d11; }
+
+/* A slider. */
+[data-ui] .slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: #252b38;
+  border-radius: 9999px;
+  outline: none;
+}
+[data-ui] .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+}
+[data-ui] .slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+}
+
+/* A caption preview: the real output of the product, set in the text face. */
+[data-ui] .caption {
+  font-family: "Oswald", "Inter", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+[data-ui] .caption .word { color: #f3f4f6; }
+[data-ui] .caption .word.karaoke { color: #10b981; }
